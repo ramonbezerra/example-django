@@ -1,0 +1,21 @@
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.log
+*.pid
+*.pid.lock
+*.swp
+*.swo
+*.bak
+*.tmp
+*.temp
+*.cache
+*.DS_Store
+*.vscode
+# Ignore Python bytecode files
+**/__pycache__/
+# Ignore Jupyter Notebook checkpoints
+**/.ipynb_checkpoints/
+# Ignore virtual environment directories
+.venv/
