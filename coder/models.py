@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 class Student(models.Model):
@@ -10,3 +11,11 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+
+class StudentForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    age = forms.IntegerField()
+    email = forms.EmailField()
+
+    def __init__(self, *args, **kwargs):
+        super(StudentForm, self).__init__(*args, **kwargs)
