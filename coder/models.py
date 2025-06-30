@@ -12,7 +12,11 @@ class Student(models.Model):
     def __str__(self):
         return self.name
 
-class StudentForm(forms.Form):
+class StudentForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['name', 'age', 'email']
+    
     name = forms.CharField(max_length=100)
     age = forms.IntegerField()
     email = forms.EmailField()

@@ -5,7 +5,7 @@
 {% block content %}
     <div class="container">
         <h2 class="mt-4">Estudantes</h2>
-        <a href="{% url 'coder:create' %}" class="btn btn-primary mb-3">Registrar Novo Estudante</a>
+        <a href="{% url 'coder:create' %}" class="btn btn-primary mb-3">Registrar Estudante</a>
         <ul class="list-group">
             {% for student in students %}
                 <li class="list-group-item">

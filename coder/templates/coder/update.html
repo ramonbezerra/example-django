@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Atualização do Estudante {{ student.name }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>Atualização do Estudante {{ student.name }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a href="{% url 'coder:index' %}" class="btn btn-secondary">Voltar</a>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+        </form>
+
+    </div>
+{% endblock %}
