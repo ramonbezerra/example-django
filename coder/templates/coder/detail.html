@@ -11,6 +11,7 @@
         <p><strong>Atualizado em:</strong> {{ student.updated_at }}</p>
 
         <a href="{% url 'coder:index' %}" class="btn btn-secondary">Voltar</a>
+        <a href="{% url 'coder:delete' student.id %}" class="btn btn-danger">Excluir</a>
         <a href="{% url 'coder:update' student.id %}" class="btn btn-primary">Atualizar</a>
     </div>
 {% endblock %}

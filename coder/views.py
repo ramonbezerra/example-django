@@ -37,3 +37,10 @@ def update(request, student_id):
             return redirect('coder:index')
     else:
         return render(request, 'coder/update.html', {'form': form, 'student': student})
+    
+def delete(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    if request.method == 'POST':
+        student.delete()
+        return redirect('coder:index')
+    return render(request, 'coder/delete.html', {'student': student})

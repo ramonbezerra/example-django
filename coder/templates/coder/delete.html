@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Exclusão do Estudante {{ student.name }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>Exclusão do Estudante {{ student.name }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            <p>Tem certeza que deseja excluir este estudante?</p>
+            <a href="{% url 'coder:detail' student.id %}" class="btn btn-secondary">Voltar</a>
+            <button type="submit" class="btn btn-danger">Excluir</button>
+        </form>
+
+    </div>
+{% endblock %}
