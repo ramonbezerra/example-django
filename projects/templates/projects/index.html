@@ -3,12 +3,24 @@
 {% block title %}Projetos{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>Projetos</h1>
+<div class="container">
+    <h1>Projetos</h1>
+
+    <form method="get">
+        <label for="name">Pesquisa por Nome:</label>
+        <input type="text" id="name" name="name" value="{{ request.GET.name }}">
+        <button type="submit">Pesquisar</button>
+    </form>
+    
+    {% if projects %}
+        <p>Total de projetos: {{ projects.count }}</p>
         <ul>
             {% for project in projects %}
-                <li><a href="{% url 'projects:detail' project.id %}">{{ project.name }}</a></li>
+            <li><a href="{% url 'projects:detail' project.id %}">{{ project.name }}</a></li>
             {% endfor %}
         </ul>
-    </div>
+    {% else %}
+        <p>Nenhum projeto encontrado.</p>
+    {% endif %}
+</div>
 {% endblock %}
