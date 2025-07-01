@@ -46,9 +46,9 @@ class ProjectForm(forms.ModelForm):
 
     def clean_start_date(self):
         data = self.cleaned_data.get('start_date')
-        # if data is not None:
-        #     if data > self.cleaned_data.get('end_date'):
-        #         raise forms.ValidationError("A data de início não pode ser maior que a data de término.")
+        if data is not None and self.cleaned_data.get('end_date') is not None:
+            if data > self.cleaned_data.get('end_date'):
+                raise forms.ValidationError("A data de início não pode ser maior que a data de término.")
         if data > datetime.date.today():
             raise forms.ValidationError("A data de início não pode ser maior que a data atual.")
         return data
