@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
-from .models import Project
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .models import Project, ProjectForm
 
 # Create your views here.
 class ProjectListView(ListView):
@@ -21,3 +21,21 @@ class ProjectDetailView(DetailView):
     model = Project
     template_name = 'projects/detail.html'
     context_object_name = 'project'
+
+class ProjectCreateView(CreateView):
+    model = Project
+    form_class = ProjectForm
+    template_name = 'projects/create.html'
+    success_url = '/projects/'
+
+class ProjectUpdateView(UpdateView):
+    model = Project
+    form_class = ProjectForm
+    template_name = 'projects/update.html'
+    success_url = '/projects/'
+
+class ProjectDeleteView(DeleteView):
+    model = Project
+    template_name = 'projects/delete.html'
+    context_object_name = 'project'
+    success_url = '/projects/'
